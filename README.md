@@ -58,16 +58,18 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Support
+## API Documentation
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+This project includes auto-generated Swagger documentation using @nestjs/swagger.
 
-## Stay in touch
+Once the app is running, you can access the Swagger UI at:
+http://localhost:3000/api
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+It provides:
+• Descriptions for all available endpoints
+• Request and response schemas
+• Authentication requirements using JWT Bearer tokens
 
-## License
+🔐 How to use
 
-Nest is [MIT licensed](LICENSE).
+After logging in via POST /auth/login, copy the token received and click the Authorize button in Swagger UI to enable authenticated routes.
