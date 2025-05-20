@@ -73,3 +73,34 @@ It provides:
 🔐 How to use
 
 After logging in via POST /auth/login, copy the token received and click the Authorize button in Swagger UI to enable authenticated routes.
+
+🐳 Development with Docker
+
+This project includes a docker-compose.yml file for local development with PostgreSQL and Adminer (a lightweight DB GUI).
+
+▶️ Start services
+
+docker-compose up -d
+
+• PostgreSQL is available at: localhost:5432
+• Adminer is available at: http://localhost:8080
+
+In Adminer:
+• System: PostgreSQL
+• Server: postgres
+• Username: postgres
+• Password: postgres
+• Database: mydb
+
+⚙️ Environment configuration
+DATABASE_URL="postgresql://postgres:postgres@localhost:5432/mydb?schema=public"
+JWT_SECRET="your-secret-key"
+
+🚀 Deployment
+
+To deploy the application:
+1- Provision a PostgreSQL instance (e.g. with Railway, Supabase, Render).
+2- Update the DATABASE_URL in .env.
+3- Run database migrations:
+npx prisma migrate deploy
+4- Deploy the NestJS app using your preferred method (Docker, Railway, Render, etc.).
