@@ -2,6 +2,7 @@ import {
   Injectable,
   ConflictException,
   UnauthorizedException,
+  NotFoundException,
 } from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
 import { DatabaseService } from '../shared/db/db.service';
@@ -38,10 +39,10 @@ export class AuthService {
 
   async validateUser(email: string, password: string) {
     const user = await this.db.user.findUnique({ where: { email } });
-    if (!user) throw new UnauthorizedException('Invalid credentials');
+    if (!user) throw new NotFoundException('User not found');
 
     const passwordValid = await bcrypt.compare(password, user.password);
-    if (!passwordValid) throw new UnauthorizedException('Invalid credentials');
+    if (!passwordValid) throw new UnauthorizedException('Invalid password');
 
     return user;
   }
