@@ -3,8 +3,8 @@ import { AuthService } from './auth.service';
 import { SignupDto } from './dto/signup.dto';
 import { LoginDto } from './dto/login.dto';
 import { ApiBearerAuth, ApiBody, ApiOperation, ApiTags } from '@nestjs/swagger';
-import { JwtAuthGuard } from 'src/guards/jwt-auth.guard';
-import { Public } from 'src/decorators/public.decorator';
+import { JwtAuthGuard } from '../guards/jwt-auth.guard';
+import { Public } from '../decorators/public.decorator';
 
 @ApiTags('Auth')
 @Controller('auth')
@@ -36,6 +36,6 @@ export class AuthController {
   @ApiBearerAuth()
   @ApiOperation({ summary: 'Get profile info from token' })
   getProfile(@Req() req: any) {
-    return req.user; // ← esto viene del JwtStrategy.validate()
+    return req.user;
   }
 }
