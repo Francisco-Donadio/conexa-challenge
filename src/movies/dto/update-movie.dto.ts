@@ -35,5 +35,5 @@ export class UpdateMovieDto {
   @ApiProperty({ example: '1' })
   @IsString()
   @IsOptional()
-  swapiId: string;
+  swapiId?: string;
 }

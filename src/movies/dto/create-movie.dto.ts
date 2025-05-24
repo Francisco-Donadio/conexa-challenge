@@ -34,5 +34,5 @@ export class CreateMovieDto {
   @ApiProperty({ example: '1' })
   @IsString()
   @IsOptional()
-  swapiId: string;
+  swapiId?: string;
 }

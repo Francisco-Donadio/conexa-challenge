@@ -8,7 +8,7 @@ import {
   Post,
 } from '@nestjs/common';
 import { MoviesService } from './movies.service';
-import { Roles } from 'src/decorators/role.decorator';
+import { Roles } from '../decorators/role.decorator';
 import { ApiBearerAuth, ApiBody, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { CreateMovieDto } from './dto/create-movie.dto';
 import { UpdateMovieDto } from './dto/update-movie.dto';
